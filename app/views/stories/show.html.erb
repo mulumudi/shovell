@@ -1,0 +1,40 @@
+ 
+
+<table>
+<h2><%= "Author :" + @stories.first.permalink %></h2>
+<% @stories.each do |story| %>
+  <tr><div id="row">
+  <td><%= story.id %></td>
+    <td><%= story.name %></td>
+    <td><%= story.link %></td>
+ 
+  
+		<td><span id="vote_score_<%= story.id %>">Score: <%= story.votes.count %></span></td>
+		
+		<td> 
+			<div id="vote_link">
+	
+			<%= link_to  'Vote for it',   {:action => 'vote' , :id => story  } , :remote => true %>
+			</div>
+		</td>
+		<td> <p class="submitted_by">
+			Submitted by:
+			<span><%= story.user.login %></span>
+			
+			<rd><span id="vote_history">
+<% if story.votes.size.zero? %>
+<em>No shoves yet!</em>
+<% else %>
+
+<% end %>
+</ul>
+</p></td>
+	
+
+  </tr></div>
+<% end %>
+</table>
+
+
+<%= link_to "Back", :action => 'index' %>
+

@@ -1,0 +1,22 @@
+<table class="sortable resizable">
+
+<tr class="theader">
+	<th>Title</th>
+	<th>Link</th>
+	<th>Author</th>
+  </tr>
+<% @stories.each do |story| %>
+  
+  
+  <tr  class="<%= cycle('row1', 'row2') %>">
+    <td><%= story.name %></td>
+    <td><%= story.link %></td>
+
+    <td><%= link_to story.permalink, story.permalink %></td>
+
+  </tr>
+<% end %>
+</table>
+
+
+ 
